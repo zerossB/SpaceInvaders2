@@ -23,8 +23,8 @@ public class SpaceInvaders2 extends JFrame {
     private Jogador jogador;
 
     //Velocidade de Movimento
-    private int vX = 5;
-    private int vY = 3;
+    private final int vX = 5;
+    private final int vY = 3;
 
     //Thread Tiro
     private Thread thTiro;
