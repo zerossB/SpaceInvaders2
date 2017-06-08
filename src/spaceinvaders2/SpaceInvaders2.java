@@ -6,6 +6,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import spaceinvaders2.assets.Inimigo;
 import spaceinvaders2.assets.Jogador;
 import spaceinvaders2.assets.Tiro;
 
@@ -21,6 +22,8 @@ public class SpaceInvaders2 extends JFrame {
 
     //Personagens
     private Jogador jogador;
+
+    private Inimigo inimigo;
 
     //Velocidade de Movimento
     private final int vX = 5;
@@ -55,6 +58,9 @@ public class SpaceInvaders2 extends JFrame {
         jogador = new Jogador(x, y);
         pGame.add(jogador);
 
+        inimigo = new Inimigo(30, 30);
+        pGame.add(inimigo);
+
         add(pGame, BorderLayout.CENTER);
         add(pInfo, BorderLayout.PAGE_END);
     }
@@ -72,14 +78,6 @@ public class SpaceInvaders2 extends JFrame {
         @Override
         public void keyPressed(KeyEvent e) {
             switch (e.getKeyCode()) {
-                /*case KeyEvent.VK_UP:
-                    jogador.moveY(-vY);
-                    pGame.repaint();
-                    break;
-                case KeyEvent.VK_DOWN:
-                    jogador.moveY(vY);
-                    pGame.repaint();
-                    break; */
 
                 //Movimento para Esquerda
                 case KeyEvent.VK_LEFT:
@@ -122,6 +120,12 @@ public class SpaceInvaders2 extends JFrame {
             //Faz Tiro se mexer no eixo Y
             while (true) {
                 try {
+
+                    if (tiro.getBounds().intersects(inimigo.getBounds())) {
+                        pGame.remove(inimigo);
+                        pGame.remove(tiro);
+                    }
+
                     //É diferente que a altura do tiro negativa? (Fora da tela)
                     if (tiro.getBounds().y != -tiro.getHeight()) {
                         tiro.moveY(-vY);
