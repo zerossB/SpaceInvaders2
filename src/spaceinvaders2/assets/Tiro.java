@@ -6,9 +6,6 @@
 package spaceinvaders2.assets;
 
 import java.awt.Color;
-import java.awt.event.KeyListener;
-import java.util.LinkedList;
-import java.util.List;
 import javax.swing.JPanel;
 
 /**

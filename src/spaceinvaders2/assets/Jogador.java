@@ -6,9 +6,6 @@
 package spaceinvaders2.assets;
 
 import java.awt.Color;
-import java.awt.event.KeyListener;
-import java.util.LinkedList;
-import java.util.List;
 import javax.swing.JPanel;
 
 /**
@@ -19,25 +16,28 @@ public class Jogador extends JPanel {
 
     private int x;
     private int y;
+    
+    private static final int dx = 50;
+    private static final int dy = 50;
 
     public Jogador() {
-        setBounds(0, 0, 50, 50);
+        setBounds(0, 0, dx, dy);
         setBackground(Color.ORANGE);
     }
 
     public Jogador(int x, int y) {
         this.x = x;
         this.y = y;
-        setBounds(x, y, 50, 50);
+        setBounds(x, y, dx, dy);
         setBackground(Color.ORANGE);
     }
 
     public void moveX(int x) {
-        setBounds((this.x += x), y, 50, 50);
+        setBounds((this.x += x), y, dx, dy);
     }
 
     public void moveY(int y) {
-        setBounds(x, (this.y += y), 50, 50);
+        setBounds(x, (this.y += y), dx, dy);
     }
 
 }
