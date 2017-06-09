@@ -108,8 +108,10 @@ public class SpaceInvaders2 extends JFrame {
 
         @Override
         public void run() {
+            boolean subindo = true;
+            
             //Configurações do Tiro
-            int y = jogador.getBounds().y - 25;
+            int y = jogador.getBounds().y;
             int x = (jogador.getBounds().x + ((jogador.getBounds().width / 2) - 3));
 
             //Instancia do Tiro
@@ -118,21 +120,20 @@ public class SpaceInvaders2 extends JFrame {
             pGame.repaint();
 
             //Faz Tiro se mexer no eixo Y
-            while (true) {
+            while (subindo) {
                 try {
-
                     if (tiro.getBounds().intersects(inimigo.getBounds())) {
                         pGame.remove(inimigo);
                         pGame.remove(tiro);
                     }
 
                     //É diferente que a altura do tiro negativa? (Fora da tela)
-                    if (tiro.getBounds().y != -tiro.getHeight()) {
+                    if (tiro.getBounds().y >= -tiro.getHeight()) {
                         tiro.moveY(-vY);
-                    } else {//Reomvendo componente e liberando memória!
+                    } else {//Removendo componente e liberando memória!
                         pGame.remove(tiro);
                         System.out.println("Removeu");
-                        break;
+                        subindo = false;
                     }
                     pGame.repaint();
                     Thread.sleep(100); //"FPS"
