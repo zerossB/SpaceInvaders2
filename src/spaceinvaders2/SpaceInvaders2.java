@@ -16,7 +16,8 @@ import spaceinvaders2.assets.Tiro;
  * @author haynes
  */
 public class SpaceInvaders2 extends JFrame {
-
+    
+    //Para exibição
     private static final String PONTOS = "Pontos: ";
     private int pontos;
 
@@ -152,7 +153,7 @@ public class SpaceInvaders2 extends JFrame {
                     }
                     
                     pGame.repaint();
-                    Thread.sleep(100); //"FPS"
+                    Thread.sleep(60); //"FPS"
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }
