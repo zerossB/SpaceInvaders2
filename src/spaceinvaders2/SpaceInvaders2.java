@@ -125,6 +125,7 @@ public class SpaceInvaders2 extends JFrame {
                     if (tiro.getBounds().intersects(inimigo.getBounds())) {
                         pGame.remove(inimigo);
                         pGame.remove(tiro);
+                        subindo = false;
                     }
 
                     //É diferente que a altura do tiro negativa? (Fora da tela)
