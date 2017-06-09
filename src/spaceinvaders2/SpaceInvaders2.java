@@ -150,6 +150,7 @@ public class SpaceInvaders2 extends JFrame {
                         System.out.println("Removeu");
                         subindo = false;
                     }
+                    
                     pGame.repaint();
                     Thread.sleep(100); //"FPS"
                 } catch (InterruptedException ex) {

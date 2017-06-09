@@ -18,7 +18,7 @@ public class Jogador extends JPanel {
     private int y;
     
     private static final int dx = 50;
-    private static final int dy = 50;
+    private static final int dy = 25;
 
     public Jogador() {
         setBounds(0, 0, dx, dy);

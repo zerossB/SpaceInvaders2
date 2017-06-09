@@ -18,7 +18,7 @@ public class Tiro extends JPanel {
     private int y;
     
     private static final int dx = 5;
-    private static final int dy = 30;
+    private static final int dy = 15;
 
     public Tiro() {
         setBounds(0, 0, dx, dy);
