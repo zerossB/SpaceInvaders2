@@ -23,6 +23,7 @@ public class Jogador extends JPanel {
     public Jogador() {
         setBounds(0, 0, dx, dy);
         setBackground(Color.ORANGE);
+        setDoubleBuffered(true);
     }
 
     public Jogador(int x, int y) {

@@ -16,13 +16,16 @@ public class Inimigo extends JPanel {
 
     private int x;
     private int y;
-    
+
+    private boolean vivo;
+
     private static final int dx = 30;
     private static final int dy = 30;
 
     public Inimigo() {
         setBounds(0, 0, dx, dy);
         setBackground(Color.WHITE);
+        setDoubleBuffered(true);
     }
 
     public Inimigo(int x, int y) {
@@ -40,4 +43,11 @@ public class Inimigo extends JPanel {
         setBounds(x, (this.y += y), dx, dy);
     }
 
+    public boolean isVivo() {
+        return vivo;
+    }
+
+    public void setVivo(boolean vivo) {
+        this.vivo = vivo;
+    }
 }

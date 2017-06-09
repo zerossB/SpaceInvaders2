@@ -23,6 +23,7 @@ public class Tiro extends JPanel {
     public Tiro() {
         setBounds(0, 0, dx, dy);
         setBackground(Color.RED);
+        setDoubleBuffered(true);
     }
 
     public Tiro(int x, int y) {
