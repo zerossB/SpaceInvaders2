@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import spaceinvaders2.assets.Inimigo;
 import spaceinvaders2.assets.Jogador;
@@ -16,9 +17,14 @@ import spaceinvaders2.assets.Tiro;
  */
 public class SpaceInvaders2 extends JFrame {
 
+    private static final String PONTOS = "Pontos: ";
+    private int pontos;
+
     //Paineis
     private JPanel pGame;
     private JPanel pInfo;
+
+    private JLabel pPontos;
 
     //Personagens
     private Jogador jogador;
@@ -47,6 +53,12 @@ public class SpaceInvaders2 extends JFrame {
     private void init() {
         pGame = new JPanel();
         pInfo = new JPanel();
+
+        pInfo.setBackground(Color.BLACK);
+        pPontos = new JLabel(PONTOS + pontos);
+        pPontos.setForeground(Color.WHITE);
+
+        pInfo.add(pPontos);
 
         pGame.setLayout(null);
 
@@ -109,7 +121,7 @@ public class SpaceInvaders2 extends JFrame {
         @Override
         public void run() {
             boolean subindo = true;
-            
+
             //Configurações do Tiro
             int y = jogador.getBounds().y;
             int x = (jogador.getBounds().x + ((jogador.getBounds().width / 2) - 3));
@@ -125,6 +137,8 @@ public class SpaceInvaders2 extends JFrame {
                     if (tiro.getBounds().intersects(inimigo.getBounds())) {
                         pGame.remove(inimigo);
                         pGame.remove(tiro);
+                        pontos++;
+                        pPontos.setText(PONTOS + pontos);
                         subindo = false;
                     }
 
